@@ -1,38 +1,42 @@
 #include <stdio.h>
 
 int main(void)
-{         
-          int n; 
-          scanf("%d\n", &n);
+{
+          int n;
+          scanf("%d", &n);
+
           int arr[n];
+
           for (int i = 0; i < n; i++)
           {
                     scanf("%d", &arr[i]);
           }
-          
-          // selection sort algorithm starts from here to sort the orginal array;
-          for (int z = 0; z < n; z++)
+
+          // Selection sort algorithm:
+          for (int y = 0; y < n; y++)
           {
-                    // selection sort algorithm:
-                    // find the smallest number
-                    // line:28 put the smallest number to the nth position of the array
-                    // line:24 as we are taking the smallest number to the nth(z) position of the array, the current nth position z (number) will be placed into smallest number's nth position.
-                    int smallest = arr[z];
-                    for (int x = z; x < n; x++)
+                    // stores the smallestNumber and it's index
+                    int smallest = arr[y];
+                    int smallestIndex = y;
+
+                    // finding the smallestNumber and it's index
+                    for (int z = y; z < n; z++)
                     {
-                              if (arr[x] < smallest)
+                              if (arr[z] < smallest)
                               {
-                                        smallest = arr[x];
-                                        arr[x] = arr[z]; // swaping the smallest number's position with current position.
+                                        smallest = arr[z];
+                                        smallestIndex = z;
                               }
                     }
 
-                    arr[z] = smallest; // putting the smallest number that is stored earlier, in the nth position of array.
+                    // swaping the smallest element and the current element
+                    arr[smallestIndex] = arr[y]; // putting the current element to the smallestIndex of the array
+                    arr[y] = smallest;           // putting the smallest number to the nth of the array
           }
 
-          printf("Sorted Array is: ");
-          for (int y = 0; y < n; y++)
+          for (int x = 0; x < n; x++)
           {
-                    printf("%d ", arr[y]);
-          }      
+                    printf("%d ", arr[x]);
+          }
+          printf("\n");
 }
