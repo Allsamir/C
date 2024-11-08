@@ -4,7 +4,7 @@ void swap(int *p, int *q);
 int main(void)
 {
           int a = 1, b = 2;
-          swap(&a, &b);
+          swap(&a, &b); // pass by reference
           printf("a = %d, b = %d\n", a, b);
 }
 
