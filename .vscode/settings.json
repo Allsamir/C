@@ -3,6 +3,9 @@
   "files.associations": {
     "*.ejs": "html",
     "math.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "iostream": "cpp",
+    "*.tcc": "cpp",
+    "ostream": "cpp"
   }
 }
