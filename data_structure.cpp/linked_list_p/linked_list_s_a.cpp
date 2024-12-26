@@ -31,7 +31,7 @@ int main(void)
                     {
                               break;
                     }
-                    
+
                     count++;
                     insert_at_tail(head, tail, n);
           }
@@ -78,4 +78,20 @@ bool is_sorted_ace(Node *&head, int count)
           }
 
           return true;
+}
+
+void delete_at_any_p(Node *&head, int indx)
+{
+  Node *temp = head;
+
+  for(int x = 1; x < indx; x++)
+  {
+    temp = temp->next;
+  }
+
+  Node *delete_node = temp->next;
+
+  temp->next = delete_node->next;
+
+  delete delete_node;
 }

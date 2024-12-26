@@ -75,7 +75,7 @@ void inset_at_any_p(Node *&head, int val, int index)
                     return;
           }
 
-          for(int x = 0; x < index - 1; x++)34w
+          for(int x = 0; x < index - 1; x++)
           {
                     temp = temp->next;
           }
