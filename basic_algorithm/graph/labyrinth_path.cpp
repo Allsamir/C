@@ -36,11 +36,10 @@ void BFS(int si, int sj, int n, int m)
                                         level[ci][cj] = level[par.first][par.second] + 1;
                                         parent[{ci, cj}] = {{par.first, par.second}, path[x]};
 
-                                        if(grid[ci][cj] == 'B')
+                                        if (grid[ci][cj] == 'B')
                                         {
                                                   return;
                                         }
-
                               }
                     }
           }
@@ -76,7 +75,7 @@ int main(void)
                                         sj = y;
                               }
 
-                              if(grid[x][y] == 'B')
+                              if (grid[x][y] == 'B')
                               {
                                         di = x;
                                         dj = y;
@@ -84,7 +83,13 @@ int main(void)
                     }
           }
 
-          visited[di][dj] ? cout << "YES" << endl : cout << "NO" << endl;
+          if (!visited[di][dj])
+          {
+                    cout << "NO" << endl;
+                    return 0;
+          }
+
+          cout << "YES" << endl;
 
           if (visited[di][dj])
           {
@@ -95,13 +100,13 @@ int main(void)
           pair<int, int> curr = end;
           vector<char> m_path;
 
-          while(start != curr)
+          while (start != curr)
           {
                     m_path.push_back(parent[curr].second);
                     curr = parent[curr].first;
           }
 
-          for(auto it = m_path.rbegin(), end = m_path.rend(); it != end; it++)
+          for (auto it = m_path.rbegin(), end = m_path.rend(); it != end; it++)
           {
                     cout << *it;
           }

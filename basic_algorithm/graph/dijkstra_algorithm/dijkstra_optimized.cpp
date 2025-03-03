@@ -15,6 +15,11 @@ void BFS(vector<pair<int, int>> (&adj_list)[], int src)
                     pair<int,int> par = pq.top();
                     pq.pop(); // v logv; // hence push and pop in priority queue is log n
 
+                    if(par.first > shortes_dis[par.second])
+                    {
+                              continue; // if the distance is greater than the shortest distance then we will not consider it
+                    }
+
                     for(auto child : adj_list[par.second]) //o(e)
                     {
                               int child_node = child.first;
@@ -48,7 +53,7 @@ int main(void)
                     cin >> a >> b >> w;
 
                     adj_list[a].push_back({b, w});
-                    adj_list[b].push_back({a, w});
+                    // adj_list[b].push_back({a, w});
           }
           
           for(int x = 0; x < n; x++)
